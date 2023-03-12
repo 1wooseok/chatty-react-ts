@@ -1,0 +1,8 @@
+# Ignore artifacts:
+public
+coverage
+
+*.html
+
+.gitignore
+.eslintignore
