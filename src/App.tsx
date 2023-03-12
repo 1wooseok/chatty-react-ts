@@ -5,14 +5,6 @@ import './App.css';
 export default function App() {
 	const [count, setCount] = useState(0);
 
-	if (count > 0) {
-		return null;
-	}
-
-	for (let i = 0; i < count; i++) {
-		setCount(prev => prev + 1);
-	}
-
 	return (
 		<div className="App">
 			<div>
