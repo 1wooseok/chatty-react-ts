@@ -1,4 +1,7 @@
 const { mergeConfig } = require('vite');
+const {
+	default: tsconfigPaths,
+} = require('vite-tsconfig-paths');
 
 module.exports = {
 	stories: [
@@ -9,6 +12,9 @@ module.exports = {
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
+		{
+			name: '@storybook/addon-styling',
+		},
 	],
 	framework: '@storybook/react',
 	core: {
@@ -27,6 +33,7 @@ module.exports = {
 			optimizeDeps: {
 				include: ['storybook-dark-mode'],
 			},
+			plugins: [tsconfigPaths()],
 		});
 	},
 };

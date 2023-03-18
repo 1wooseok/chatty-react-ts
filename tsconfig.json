@@ -15,13 +15,17 @@
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-jsx",
-		"baseUrl": "./",
+		"baseUrl": "./src",
 		"paths": {
-			"@components/*": ["components/*"],
-			"@utils/*": ["src/utils/*"],
-			"@styles/*": ["src/styles/*"],
-			"@assets/*": ["src/assets/*"],
-			"@services/*": ["src/services/*"]
+			"~/components/*": ["components/*"],
+			"~/utils/*": ["utils/*"],
+			"~/styles/*": ["styles/*"],
+			"~/assets/*": ["assets/*"],
+			"~/services/*": ["services/*"],
+			"~/hooks/*": ["hooks/*"],
+			"~/types/*": ["types/*"],
+			"~/constants/*": ["constants/*"],
+			"~pages/*": ["pages/*"]
 		}
 	},
 	"include": ["src"],
