@@ -1,22 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import {
+	useCallback,
+	useEffect,
+	useState
+} from 'react';
+import {
+	useLocation,
+	useNavigate
+} from 'react-router-dom';
 
-type TabType = 'home' | 'community' | 'ranking' | 'mypage';
-const useTabBar = () => {
+export type TabType =
+  | 'home'
+  | 'community'
+  | 'ranking'
+  | 'mypage';
+
+export const useTabBar = (): [
+  tab: TabType,
+  handleTab: (nextUrl: string) => void
+] => {
+	const navigate = useNavigate();
 	const { pathname } = useLocation();
 	const [tab, setTab] = useState<TabType>('home');
-
+  
+	const handleTab = useCallback((nextUrl: string) => {
+		navigate(nextUrl);
+	}, []);
+  
 	useEffect(() => {
-		if (pathname === tab) {
-			return;
-		}
 		const nextTab = getTabByPathname(pathname);
+  
 		setTab(nextTab);
 	}, [pathname]);
 
-	return [tab, setTab];
+	return [tab, handleTab];
 };
-
-export default useTabBar;
 
 const getTabByPathname = (pathname: string): TabType => {
 	if (pathname.includes('mypage')) {

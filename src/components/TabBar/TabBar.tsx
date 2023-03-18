@@ -1,55 +1,56 @@
 import React, { useMemo } from 'react';
-import Icon from '~/components/Icon/Icon';
 import { IconTypes } from '~/types/components/icon';
+import { useTabBar } from '~/components/TabBar/useTabBar';
+import Tab from '~/components/TabBar/Tab';
+
+export type TabItemType = { label: string; icon: IconTypes; url: string }
 
 export const TabBar = () => {
-	// const [tab, setTab] = useTab();
-
-	const tabs = useMemo(
+	const [tab, handleTab] = useTabBar();
+ 
+	const tabs: TabItemType[] = useMemo(
 		() => [
-			{ label: '홈', icon: 'home', value: 'home' },
+			{
+				label: '홈',
+				icon: 'home',
+				url: 'home'
+			},
 			{
 				label: '커뮤니티',
 				icon: 'chat',
-				value: 'community',
+				url: 'community'
 			},
-			{ label: '랭킹', icon: 'trophy', value: 'ranking' },
-			{ label: '마이', icon: 'user', value: 'mypage' },
+			{
+				label: '랭킹',
+				icon: 'trophy',
+				url: 'ranking'
+			},
+			{
+				label: '마이',
+				icon: 'user',
+				url: 'mypage'
+			}
 		],
 		[]
 	);
-
+  
 	return (
 		<ul
-			className="flex items-center justify-between gap-4 w-full	h-58 border-t border-#FFFFFF py-2.5
+			className="fixed bottom-0 flex items-center justify-between gap-4 w-full	h-58 py-2.5
 "
 		>
-			{tabs.map(tab => (
+			{tabs.map((tabItem: TabItemType) => (
 				<Tab
-					key={tab.value}
-					value={tab.value}
-					label={tab.label}
-					icon={tab.icon as IconTypes}
+					key={tabItem.url}
+					tab={tab}
+					tabItem={tabItem}
+					handleTab={handleTab}
 				/>
 			))}
 		</ul>
 	);
 };
 
-type TabProps = {
-	label: string;
-	icon: IconTypes;
-	value: string;
-};
-const Tab = ({ value, label, icon }: TabProps) => {
-	return (
-		<li className="flex flex-col items-center gap-1 w-1/4">
-			<Icon color={'#cccccc'} size={'16px'} icon={icon} />
-			<span style={{ fontSize: '10px', color: '#cccccc' }}>
-				{label}
-			</span>
-		</li>
-	);
-};
+
 
 export default TabBar;

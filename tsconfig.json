@@ -28,6 +28,5 @@
 			"~pages/*": ["pages/*"]
 		}
 	},
-	"include": ["src"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
