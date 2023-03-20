@@ -7,17 +7,9 @@ type Props = {};
 const Layout = ({}: Props) => {
 	return (
 		<div>
-			<ul>
-				<li>
-					<a>Public Page</a>
-				</li>
-				<li>
-					<a>Protected Page</a>
-				</li>
-			</ul>
-
-			<Outlet />
-
+			<div className="bg-[#F9F9F9]">
+				<Outlet />
+			</div>
 			<TabBar />
 		</div>
 	);

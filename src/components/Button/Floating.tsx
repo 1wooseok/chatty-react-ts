@@ -3,13 +3,18 @@ import Icon from '~/components/Icon/Icon';
 
 const Floating = () => {
 	return (
-		<div className="absolute bottom-60 right-15 bg-main-primary w-46 h-46 rounded-full flex items-center justify-center">
+		<div
+			className="absolute flex pl-12 items-center justify-center drop-shadow-xl
+
+ w-117 h-48 bottom-60 right-15 bg-main-primary rounded-[99px] "
+		>
 			<Icon
-				size={'36px'}
+				size={'24px'}
 				icon={'plus'}
 				stroke={2}
 				color={'white'}
 			/>
+			<p className={'font-semibold text-white ml-4 pr-16'}>질문하기</p>
 		</div>
 	);
 };

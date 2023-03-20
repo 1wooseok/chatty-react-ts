@@ -1,8 +1,5 @@
 import Card from './Card';
-import {
-	ComponentMeta,
-	ComponentStory,
-} from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
 	component: Card,
@@ -24,8 +21,7 @@ FromAnonymous.args = {
 export const FromMember = Template.bind({});
 FromMember.args = {
 	isAnonymous: false,
-	content:
-		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, vitae.',
+	content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, vitae.',
 };
 
 export const LongContent = Template.bind({});

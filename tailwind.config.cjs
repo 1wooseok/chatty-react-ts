@@ -15,12 +15,14 @@ const px0_1000 = {
 
 module.exports = {
 	mode: 'jit',
-	content:["./src/**/*.{js,jsx}"],
+	content: ['./src/**/*.{js,jsx}'],
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		colors: {
 			'logo-pink': '#FFB7DA',
+			white: 'white',
 			grey: {
+				100: '#999999',
 				900: '#333333',
 			},
 			natural: {
