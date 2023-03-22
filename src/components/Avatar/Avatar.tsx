@@ -1,25 +1,26 @@
 import React from 'react';
 
-// 링크도 받을지 고민
-type Props = {
+// 사용자 링크도 받을지 고민
+export type AvatarProps = {
 	size?: number;
-	src: string;
-	alt?: string;
-	hasRing?: boolean;
+	avatarUrl: string;
+	borderColor?: string;
+	hasBorder?: boolean;
 };
 
-const Avatar = ({ src, size, alt, hasRing }: Props) => {
-	const RING = hasRing ? 'ring-2 ring-black' : '';
-
+const Avatar = ({ avatarUrl, size, hasBorder, borderColor = 'white' }: AvatarProps) => {
 	return (
 		<div
-			className={`rounded-full bg-[#eaeaea] ${RING}`}
-			style={{ width: size, height: size }}
+			className={'rounded-full bg-[#eaeaea]'}
+			style={{
+				width: size,
+				height: size,
+				border: hasBorder ? `2px solid ${borderColor}` : 'none',
+			}}
 		>
 			<img
 				className={'w-full h-full rounded-full'}
-				src={src}
-				alt={alt || 'avatar'}
+				src={avatarUrl}
 			/>
 		</div>
 	);

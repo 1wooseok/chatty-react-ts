@@ -15,7 +15,6 @@ const px0_1000 = {
 
 module.exports = {
 	mode: 'jit',
-	content: ['./src/**/*.{js,jsx}'],
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		colors: {

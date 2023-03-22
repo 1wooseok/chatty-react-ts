@@ -12,12 +12,13 @@ const Template: ComponentStory<typeof Avatar> = args => <Avatar {...args} />;
 export const Default = Template.bind({});
 Default.args = {
 	size: 48,
-	src: previewAvatarImageSrc,
+	avatarUrl: previewAvatarImageSrc,
 };
 
 export const HasBorder = Template.bind({});
 HasBorder.args = {
 	size: 48,
-	src: previewAvatarImageSrc,
-	hasRing: true,
+	avatarUrl: previewAvatarImageSrc,
+	hasBorder: true,
+	borderColor: 'skyblue',
 };

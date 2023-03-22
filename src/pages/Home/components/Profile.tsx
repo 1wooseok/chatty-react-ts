@@ -23,8 +23,8 @@ const Profile = ({ background, user_image, intro, response_rate, following, foll
 				<div className={'absolute bottom-[-32px] left-16'}>
 					<Avatar
 						size={64}
-						src={user_image}
-						hasRing={true}
+						avatarUrl={user_image}
+						hasBorder={true}
 					/>
 				</div>
 			</div>

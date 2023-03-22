@@ -12,7 +12,8 @@
 		"lint": "eslint --fix .",
 		"format": "prettier --write .",
 		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook"
+		"build-storybook": "build-storybook",
+		"chromatic": "npx chromatic --project-token=1f551129f97a"
 	},
 	"husky": {
 		"hooks": {
@@ -68,5 +69,7 @@
 		"vite-plugin-tsconfig-paths": "^1.2.0",
 		"vite-tsconfig-paths": "^4.0.5",
 		"vitest": "^0.29.2"
-	}
+	},
+	"readme": "ERROR: No README data found!",
+	"_id": "chatty-v2@0.0.0"
 }
