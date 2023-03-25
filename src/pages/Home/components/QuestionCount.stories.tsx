@@ -15,8 +15,8 @@ const Template: ComponentStory<typeof QuestionCount> = args => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-	tabs: ['답변 완료', '새 질문', '거절 질문'],
+	// tabs: ['답변 완료', '새 질문', '거절 질문'],
 	// tabs: ['답변 완료', '새 질문'],
-	// tabs: ['답변 완료', '새 질문', '새 질문', '새 질문'],
+	tabs: ['답변 완료', '새 질문', '새 질문', '새 질문'],
 	// tabs: ['답변 완료', '새 질문', '새 질문', '새 질문', '새 질문'],
 };
