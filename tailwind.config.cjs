@@ -20,6 +20,7 @@ module.exports = {
 		colors: {
 			'logo-pink': '#FFB7DA',
 			white: 'white',
+			black: 'black',
 			grey: {
 				100: '#999999',
 				900: '#333333',

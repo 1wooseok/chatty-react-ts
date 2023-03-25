@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import FloatingButton from '~/components/Floating/FloatingButton';
 import Icon from '~/components/Icon/Icon';
@@ -28,7 +27,7 @@ Question.args = {
 			size={'24px'}
 			icon={'plus'}
 			stroke={2}
-			color={'white'}
+			fillColor={'white'}
 		/>
 	),
 	color: 'white',

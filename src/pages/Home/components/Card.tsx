@@ -1,4 +1,3 @@
-import React from 'react';
 import Icon from '~/components/Icon/Icon';
 import CardBody from './CardBody';
 import CardFooter from './CardFooter';
@@ -29,9 +28,12 @@ Props) => {
 				<Icon
 					size={'1rem'}
 					icon={'arrowRight'}
-					color={'rgb(254 124 88)'}
+					fillColor={'rgb(254 124 88)'}
 				/>
-				<CardBody isAnonymous={false} content={content} />
+				<CardBody
+					isAnonymous={false}
+					content={content}
+				/>
 			</div>
 
 			<CardFooter />

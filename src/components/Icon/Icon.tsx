@@ -1,9 +1,10 @@
-import React, { CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 import { svgPaths } from '~/constants/svgPaths';
 import { IconTypes } from '~/types/components/icon';
 
 type Props = {
-	color?: string;
+	fillColor?: string;
+	strokeColor?: string;
 	size: string;
 	stroke?: number;
 	icon: IconTypes;
@@ -11,24 +12,17 @@ type Props = {
 	className?: string;
 };
 
-const Icon = ({
-	color,
-	size,
-	stroke,
-	icon,
-	className,
-	style,
-}: Props) => {
+const Icon = ({ fillColor, strokeColor, size, stroke, icon, className, style }: Props) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
-			fill={color ?? 'none'}
+			fill={fillColor ?? 'none'}
 			width={size}
 			height={size}
 			className={className}
-			style={style}
-			stroke={color ?? 'black'}
+			style={{ zIndex: 10, ...style }}
+			stroke={strokeColor ?? 'black'}
 			strokeWidth={stroke ?? 1}
 		>
 			<path d={svgPaths[icon]} />

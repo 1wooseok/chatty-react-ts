@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { IconTypes } from '~/types/components/icon';
 import { useTabBar } from '~/components/TabBar/useTabBar';
 import Tab from '~/components/TabBar/Tab';

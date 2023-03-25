@@ -1,5 +1,4 @@
 import Icon from '~/components/Icon/Icon';
-import React from 'react';
 import { TabType } from '~/components/TabBar/useTabBar';
 import { TabItemType } from '~/components/TabBar/TabBar';
 
@@ -18,7 +17,7 @@ const Tab = ({ currTab, handleTab, tabItem: { label, icon, url } }: Props) => {
 			className="flex flex-col items-center gap-1 w-1/4"
 		>
 			<Icon
-				color={color}
+				fillColor={color}
 				size={'16px'}
 				icon={icon}
 			/>

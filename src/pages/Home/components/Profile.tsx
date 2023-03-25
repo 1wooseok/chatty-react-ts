@@ -1,4 +1,3 @@
-import React from 'react';
 import ChattyId from '~/components/Label/ChattyId';
 import Avatar from '~/components/Avatar/Avatar';
 

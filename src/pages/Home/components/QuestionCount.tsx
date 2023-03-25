@@ -1,41 +1,37 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 type QuestionType = '답변 완료' | '새 질문' | '거절 질문';
+type Props = {
+	tabs: string[];
+};
 
-const QuestionCount = () => {
-	const [activeQuestion, setActiveQuestion] = useState<QuestionType>('답변 완료');
+const QuestionCount = ({ tabs }: Props) => {
+	const [activeIdx, setActiveIdx] = useState<number>(0);
 
-	const isDone = activeQuestion === '답변 완료';
-	const isNew = activeQuestion === '새 질문';
-	const isNo = activeQuestion === '거절 질문';
-
-	const transform = isDone ? 'translate-x-0' : isNew ? 'translate-x-[140px]' : 'translate-x-[282px]';
+	const width = `calc(100% / ${tabs.length})`;
+	const indicatorStyle = {
+		left: `calc(${activeIdx} * (100% / ${tabs.length}))`,
+		width: `calc(calc(100% / ${tabs.length}))`,
+		transition: 'left 0.3s ease-in-out',
+	};
 
 	return (
-		<div className="relative flex justify-between items-center px-24 mt-24 font-14 font-normal w-[390px]">
+		<div className="relative flex justify-around items-center mt-24 font-14 font-normal w-full">
+			{tabs.map((tab, idx) => (
+				<div
+					key={idx}
+					style={{ width, textAlign: 'center' }}
+					onClick={() => setActiveIdx(idx)}
+					className={`${activeIdx === idx ? 'font-semibold text-black' : 'font-normal text-grey-100'}`}
+				>
+					{tab}
+				</div>
+			))}
 			<div
-				onClick={() => setActiveQuestion('답변 완료')}
-				className={`${isDone ? 'font-semibold text-black' : 'font-normal text-grey-100'}`}
-			>
-				답변 완료
-			</div>
-
-			<div
-				onClick={() => setActiveQuestion('새 질문')}
-				className={`${isNew ? 'font-semibold text-black' : 'font-normal text-grey-100'}`}
-			>
-				새 질문
-			</div>
-
-			<div
-				onClick={() => setActiveQuestion('거절 질문')}
-				className={`${isNo ? 'font-semibold text-black' : 'font-normal text-grey-100'}`}
-			>
-				거절 질문
-			</div>
-
-			<div
-				className={`absolute z-1 left-0 bottom-[-12px] w-80 h-3 bg-main-pink-600 mx-16 mt-16 transition duration-300 ease-in-out ${transform}`}
+				style={indicatorStyle}
+				className={
+					'absolute z-100 left-0 bottom-[-12px] h-3 bg-main-pink-600 mt-16 transition duration-300 ease-in-out'
+				}
 			></div>
 		</div>
 	);

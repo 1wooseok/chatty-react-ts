@@ -1,5 +1,4 @@
 import Avatar from '~/components/Avatar/Avatar';
-import React from 'react';
 import CardMeta from './CardMeta';
 
 const CardBody = ({ isAnonymous, content }: { isAnonymous: boolean; content: string }) => {

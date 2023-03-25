@@ -1,5 +1,3 @@
-import React from 'react';
-
 // 사용자 링크도 받을지 고민
 export type AvatarProps = {
 	size?: number;
