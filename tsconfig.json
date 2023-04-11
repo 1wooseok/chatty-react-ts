@@ -25,8 +25,12 @@
 			"~/hooks/*": ["hooks/*"],
 			"~/types/*": ["types/*"],
 			"~/constants/*": ["constants/*"],
-			"~pages/*": ["pages/*"]
+			"~/pages/*": ["pages/*"]
 		}
 	},
-	"references": [{ "path": "./tsconfig.node.json" }]
+	"references": [
+		{
+			"path": "./tsconfig.node.json"
+		}
+	]
 }
