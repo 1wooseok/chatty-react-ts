@@ -9,25 +9,47 @@ const px0_100 = {
 const px0_200 = {
 	...Array.from(Array(201)).map((_, i) => `${i}px`),
 };
-const px0_1000 = {
-	...Array.from(Array(1000)).map((_, i) => `${i}px`),
+const px0_500 = {
+	...Array.from(Array(501)).map((_, i) => `${i}px`),
 };
 
 module.exports = {
-	mode: 'jit',
-	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		colors: {
 			'logo-pink': '#FFB7DA',
-			white: 'white',
-			black: 'black',
+			white: '#ffffff',
+			black: '#000000',
 			grey: {
+				0: '#ffffff',
 				100: '#999999',
+				200: '#E6E6E6',
+				300: '#CCCCCC',
+				400: '#B3B3B3',
+				500: '#999999',
+				600: '#808080',
+				700: '#666666',
+				800: '#4D4D4D',
 				900: '#333333',
+				1000: '#000000',
 			},
 			natural: {
 				200: '#F0E7DF',
 				300: '#E3D7CD',
+			},
+			pink: {
+				main: '#F9A3CC',
+				dark: '#F17FB5',
+				darker: '#CF4B8A',
+				light: '#FFBEDD',
+				lighter: '#FFDDED',
+			},
+			orange: {
+				main: '#FE7C58',
+				dark: '#CB5939',
+				darker: '#983B21',
+				light: '#FFA38A',
+				lighter: '#FFCBBC',
 			},
 			main: {
 				primary: '#FE7C58',
@@ -36,23 +58,38 @@ module.exports = {
 					600: '#F892C3',
 				},
 			},
+			background: {
+				inner: '#F2F2F2',
+				card: '#ffffff',
+				overlay: '000000b3',
+			},
+			light: {
+				primary: '#333333',
+				secondary: '#999999',
+				disabled: '#cccccc',
+			},
+			dark: {
+				primary: '#ffffff',
+				secondary: '#cccccc',
+				disabled: '#999999',
+			},
 		},
 		extend: {
 			borderWidth: px0_10,
 			fontSize: px0_100,
 			lineHeight: px0_100,
-			maxWidth: px0_1000,
-			maxHeight: px0_1000,
-			minWidth: px0_1000,
-			minHeight: px0_1000,
-			spacing: px0_200,
+			width: px0_500,
+			heigiht: px0_500,
+			maxWidth: px0_500,
+			maxHeight: px0_500,
+			minWidth: px0_500,
+			minHeight: px0_500,
+			spacing: px0_500,
 			gap: px0_100,
 		},
 		screens: {
 			mobile: '360px', // @media (min-width: 360px)
-			foldable: '523px', // @media (min-width: 523px)
 			tablet: '768px', // @media (min-width: 768px)
-			'under-foldable': { max: '522px' }, // @media (max-width: 522px)
 			'under-tablet': { max: '767px' }, // @media (max-width: 767px)
 			'under-mobile': { max: '359px' }, // @media (max-width: 359px)
 		},

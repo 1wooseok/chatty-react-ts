@@ -8,14 +8,13 @@ type Props = {
 const AvatarList = ({ users, userCount }: Props) => {
 	return (
 		<ul className={'flex'}>
-			{users.map(({ avatarUrl, size, hasBorder }, idx) => (
+			{users.map(({ src, size, hasBorder }, idx) => (
 				<li
 					key={idx}
 					style={{ zIndex: idx }}
-					className={'ml-[-6px]'}
-				>
+					className={'ml-[-6px]'}>
 					<Avatar
-						avatarUrl={avatarUrl}
+						src={src}
 						size={size}
 						hasBorder={hasBorder}
 					/>

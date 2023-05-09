@@ -14,10 +14,10 @@ const Tab = ({ currTab, handleTab, tabItem: { label, icon, url } }: Props) => {
 	return (
 		<li
 			onClick={() => handleTab(url)}
-			className="flex flex-col items-center gap-1 w-1/4"
-		>
+			className="flex flex-col items-center gap-1 w-1/4">
 			<Icon
 				fillColor={color}
+				strokeColor={color}
 				size={'16px'}
 				icon={icon}
 			/>
@@ -26,8 +26,7 @@ const Tab = ({ currTab, handleTab, tabItem: { label, icon, url } }: Props) => {
 					fontSize: '10px',
 					color,
 					transform: url === 'home' ? 'translateX(-17%)' : '',
-				}}
-			>
+				}}>
 				{label}
 			</label>
 		</li>

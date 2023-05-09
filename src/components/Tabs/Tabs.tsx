@@ -14,15 +14,19 @@ const Tabs = ({ tabs, hasNew = false, indicatorColor = '#F892C3' }: Props) => {
 
 	return (
 		<>
-			<div className="flex justify-around items-center text-center font-14 font-normal w-full">
+			<div className="flex justify-around items-center text-center font-14 font-normal w-full bg-white">
 				{tabs.map((tab, idx) => (
 					<div
 						key={idx}
 						style={{ width: width + '%' }}
-						onClick={() => setActiveIdx(idx)}
-						className={`${activeIdx === idx ? 'font-semibold text-black' : 'font-normal text-grey-100'}`}>
+						onClick={() => setActiveIdx(idx)}>
 						<div className={'flex items-center justify-center gap-4 '}>
-							{tab}
+							<span
+								className={`text-14 ${
+									activeIdx === idx ? 'font-bold text-light-primary' : 'font-medium text-light-secondary'
+								}`}>
+								{tab}
+							</span>
 							{hasNew && (
 								<Badge
 									size={16}
@@ -30,7 +34,6 @@ const Tabs = ({ tabs, hasNew = false, indicatorColor = '#F892C3' }: Props) => {
 								/>
 							)}
 						</div>
-						{/*<p>zzz</p>*/}
 					</div>
 				))}
 			</div>

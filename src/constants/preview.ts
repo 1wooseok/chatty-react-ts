@@ -9,21 +9,21 @@ export const avatarList: AvatarProps[] = [
 	{
 		size: 24,
 		hasBorder: true,
-		avatarUrl: 'https://avatars2.githubusercontent.com/u/263385',
+		src: 'https://avatars2.githubusercontent.com/u/263385',
 	},
 	{
 		size: 24,
 		hasBorder: true,
-		avatarUrl: 'https://avatars2.githubusercontent.com/u/124554',
+		src: 'https://avatars2.githubusercontent.com/u/124554',
 	},
 	{
 		size: 24,
 		hasBorder: true,
-		avatarUrl: 'https://avatars0.githubusercontent.com/u/81672',
+		src: 'https://avatars0.githubusercontent.com/u/81672',
 	},
 	{
 		size: 24,
 		hasBorder: true,
-		avatarUrl: 'https://avatars3.githubusercontent.com/u/1831709',
+		src: 'https://avatars3.githubusercontent.com/u/1831709',
 	},
 ];

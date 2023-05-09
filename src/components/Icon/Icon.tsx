@@ -17,14 +17,13 @@ const Icon = ({ fillColor, strokeColor, size, stroke, icon, className, style }: 
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
-			fill={fillColor ?? 'none'}
+			fill={fillColor || 'black'}
 			width={size}
 			height={size}
 			className={className}
 			style={{ zIndex: 10, ...style }}
 			stroke={strokeColor ?? 'black'}
-			strokeWidth={stroke ?? 1}
-		>
+			strokeWidth={stroke ?? 1}>
 			<path d={svgPaths[icon]} />
 		</svg>
 	);

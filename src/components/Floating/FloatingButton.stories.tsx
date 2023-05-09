@@ -30,22 +30,22 @@ Question.args = {
 			fillColor={'white'}
 		/>
 	),
-	color: 'white',
-	background: '#FE7C58',
+	textColor: 'white',
+	backgroundColor: '#FE7C58',
 };
 
 export const ToRecentFriends = Template.bind({});
 ToRecentFriends.args = {
 	label: '최근 질문한 친구에게',
 	icon: <AvatarList users={avatarList} />,
-	color: 'white',
-	background: '#FE7C58',
+	textColor: 'white',
+	backgroundColor: '#FE7C58',
 };
 
 export const ToOthers = Template.bind({});
 ToOthers.args = {
 	label: '다른 친구에게',
 	icon: <AvatarList users={avatarList} />,
-	color: '#FE7C58',
-	background: 'white',
+	textColor: '#FE7C58',
+	backgroundColor: 'white',
 };

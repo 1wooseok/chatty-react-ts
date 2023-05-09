@@ -14,7 +14,10 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
+		"rootDir": "./src",
 		"jsx": "react-jsx",
+		"types": ["vite/client"],
+		"include": ["settings.d.ts"],
 		"baseUrl": "./src",
 		"paths": {
 			"~/components/*": ["components/*"],
@@ -25,7 +28,8 @@
 			"~/hooks/*": ["hooks/*"],
 			"~/types/*": ["types/*"],
 			"~/constants/*": ["constants/*"],
-			"~/pages/*": ["pages/*"]
+			"~/pages/*": ["pages/*"],
+			"~/api/*": ["api/*"]
 		}
 	},
 	"references": [
