@@ -13,4 +13,5 @@ export type ProfileModel = {
 	profile_message: string;
 	follower: number;
 	following: number;
+	views: number;
 };

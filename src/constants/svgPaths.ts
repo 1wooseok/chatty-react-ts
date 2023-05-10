@@ -23,4 +23,5 @@ export const svgPaths = {
 	arrowRightPlane: 'M8.25 4.5l7.5 7.5-7.5 7.5',
 	uploadTray: 'M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5',
 	exclamation: 'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z',
+	close: 'M6 18L18 6M6 6l12 12',
 } as const;

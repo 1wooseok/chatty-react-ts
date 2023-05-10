@@ -12,7 +12,7 @@ const FloatingButton = ({ icon, label, textColor, backgroundColor, onClick }: Pr
 			onClick={onClick}
 			style={{ background: backgroundColor }}
 			className={
-				'absolute z-10 flex px-20 gap-4 items-center justify-center drop-shadow-xl h-48 bottom-60 right-15 rounded-[99px]'
+				'absolute z-10 flex px-20 gap-4 items-center justify-center drop-shadow-xl h-48 bottom-32 right-15 rounded-[99px]'
 			}>
 			{icon}
 			<p

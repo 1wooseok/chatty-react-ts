@@ -1,4 +1,5 @@
 {
+	"include": ["settings.d.ts"],
 	"compilerOptions": {
 		"target": "ESNext",
 		"useDefineForClassFields": true,
@@ -17,7 +18,6 @@
 		"rootDir": "./src",
 		"jsx": "react-jsx",
 		"types": ["vite/client"],
-		"include": ["settings.d.ts"],
 		"baseUrl": "./src",
 		"paths": {
 			"~/components/*": ["components/*"],

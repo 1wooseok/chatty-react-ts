@@ -1,3 +1,57 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: 'SUIT-Heavy';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Heavy.woff2') format('woff2');
+}
+
+body {
+	font-family: 'Pretendard-Variable', sans-serif;
+}
+
+pre {
+	font-family: 'Pretendard-Regular', sans-serif;
+	font-weight: 500;
+	font-size: 1rem;
+
+	max-width: calc(100% - 10px);
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+.chatty {
+	font-family: 'SUIT-Heavy', sans-serif;
+	font-size: 14px;
+	color: #f9a3cc;
+}
+
+.chattyId {
+	max-width: 52px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.linear-gradiant {
+	background: linear-gradient(270deg, #ff683e 0%, #fe7c58 33.85%, #f9a3cc 100%);
+	box-shadow: 0 7px 4px rgba(0, 0, 0, 0.02), 0 3px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.03),
+		0 0 0 rgba(0, 0, 0, 0.03);
+}
+
+.spinner {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	border: 3px solid #fe7c58;
+	border-top-color: transparent;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}

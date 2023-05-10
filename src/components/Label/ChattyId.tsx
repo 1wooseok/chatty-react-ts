@@ -7,12 +7,10 @@ type Props = {
 
 const ChattyId = ({ userId, color = '#999999', isBold, fontSize = 16 }: Props) => {
 	return (
-		<span className={`text-[${color}]`}>
-			<span
-				className={`font-[${fontSize}px] ${isBold ? 'font-bold' : 'font-normal'}`}
-				style={{ fontSize: `${fontSize}px` || '16px' }}>
-				@{userId}
-			</span>
+		<span
+			className={`text-[${color}] font-[${fontSize}px] ${isBold ? 'font-bold' : 'font-normal'}`}
+			style={{ fontSize: `${fontSize}px` || '16px' }}>
+			@{userId}
 		</span>
 	);
 };

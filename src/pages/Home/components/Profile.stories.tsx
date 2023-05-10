@@ -15,20 +15,34 @@ const Template: ComponentStory<typeof Profile> = args => (
 
 export const InitialProfile = Template.bind({});
 InitialProfile.args = {
-	background: '',
-	user_image: '',
-	intro: '',
+	background_image: '',
+	profile_image: '',
+	profile_message: '',
 	response_rate: 0,
 	follower: 0,
 	following: 0,
+	profile_name: '',
+	username: '',
+	question_count: {
+		unanswered: 0,
+		answered: 0,
+		rejected: 0,
+	},
 };
 
 export const Filled = Template.bind({});
 Filled.args = {
-	background: previewBackgroundImageSrc,
-	user_image: previewAvatarImageSrc,
-	intro: '한줄 자기소개',
+	background_image: previewBackgroundImageSrc,
+	profile_image: previewAvatarImageSrc,
+	profile_message: '한줄 자기소개',
 	response_rate: 77,
 	follower: 123,
 	following: 222,
+	profile_name: 'fldkjf',
+	username: '챗지피티',
+	question_count: {
+		unanswered: 12,
+		answered: 55,
+		rejected: 1,
+	},
 };

@@ -1,15 +1,15 @@
-import { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import Badge from '~/components/Badge/Badge';
 
 type Props = {
+	activeIdx: number;
 	tabs: string[];
 	indicatorColor?: string;
 	hasNew?: boolean;
+	onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
-const Tabs = ({ tabs, hasNew = false, indicatorColor = '#F892C3' }: Props) => {
-	const [activeIdx, setActiveIdx] = useState<number>(0);
-
+const Tabs = ({ activeIdx, tabs, hasNew = false, indicatorColor = '#F892C3', onClick }: Props) => {
 	const width = useMemo(() => Math.round(100 / tabs.length), [tabs.length]);
 
 	return (
@@ -18,15 +18,16 @@ const Tabs = ({ tabs, hasNew = false, indicatorColor = '#F892C3' }: Props) => {
 				{tabs.map((tab, idx) => (
 					<div
 						key={idx}
-						style={{ width: width + '%' }}
-						onClick={() => setActiveIdx(idx)}>
+						style={{ width: width + '%' }}>
 						<div className={'flex items-center justify-center gap-4 '}>
-							<span
-								className={`text-14 ${
-									activeIdx === idx ? 'font-bold text-light-primary' : 'font-medium text-light-secondary'
-								}`}>
-								{tab}
-							</span>
+							<button onClick={e => onClick(e)}>
+								<span
+									className={`text-14 ${
+										activeIdx === idx ? 'font-bold text-light-primary' : 'font-medium text-light-secondary'
+									}`}>
+									{tab}
+								</span>
+							</button>
 							{hasNew && (
 								<Badge
 									size={16}

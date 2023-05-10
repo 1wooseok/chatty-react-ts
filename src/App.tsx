@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from '~/pages/Home/Home';
 import Landing from '~/pages/Landing/Landing';
 import { QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ErrorBoundary from '~/hooks/ErrorBoundary';
 import { Suspense } from 'react';
 import NotFound from '~/pages/Error/NotFound';
+import Spinner from '~/components/Loading/Spinner';
+import Home from '~/pages/Home/Home';
+import Toast from '~/components/Toast/Toast';
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -37,19 +39,23 @@ export default function App() {
 						path={'/'}
 						element={<Landing />}
 					/>
-					{/*<Route element={<Layout />}>*/}
 					<Route
 						path={'/:username'}
 						element={
 							<ErrorBoundary fallback={<NotFound />}>
-								<Suspense fallback={<h1>Loading...</h1>}>
+								<Suspense
+									fallback={
+										<div className={'w-screen h-screen flex items-center justify-center'}>
+											<Spinner />
+										</div>
+									}>
 									<Home />
 								</Suspense>
 							</ErrorBoundary>
 						}
 					/>
-					{/*</Route>*/}
 				</Routes>
+				<Toast />
 			</QueryClientProvider>
 		</div>
 	);

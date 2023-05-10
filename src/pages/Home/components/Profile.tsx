@@ -2,6 +2,8 @@ import ChattyId from '~/components/Label/ChattyId';
 import Avatar from '~/components/Avatar/Avatar';
 import Logo from '~/components/Icon/Logo';
 import { ProfileModel } from '~/api/profile/model';
+import useBool from '../../../hooks/useBool';
+import AppModal from '../../../components/Modal/AppModal';
 
 const Profile = ({
 	profile_message,
@@ -11,12 +13,16 @@ const Profile = ({
 	follower,
 	following,
 	response_rate,
-	user_id,
+	// user_id,
 	username,
 	question_count,
+	views,
 }: ProfileModel) => {
+	const [isAppOpen, toggleAppOpen] = useBool(false);
+
 	return (
 		<>
+			{isAppOpen && <AppModal toggleAppOpen={toggleAppOpen} />}
 			{/* Background & Avatar */}
 			<div className={'relative w-full h-160 bg-white'}>
 				<img
@@ -37,20 +43,22 @@ const Profile = ({
 				<div className={'flex justify-end'}>
 					<button className="rounded-[17px] border-pink-main border-1 flex items-center p-8 gap-[8px]">
 						<Logo size={20} />
-						<span className="text-sm text-pink-main font-extrabold">Chatty?</span>
+						<button onClick={toggleAppOpen}>
+							<span className="chatty">Chatty?</span>
+						</button>
 					</button>
 					{/*<button className={'bg-main-pink-600 text-white rounded-2xl px-20 py-8 text-14 font-semibold'}>팔로우</button>*/}
 				</div>
 
-				<div className={'flex flex-col gap-0'}>
+				<div className={'flex flex-col gap-0 justify-center-center'}>
 					<p className={'text-lg font-bold'}>{username}</p>
 					<ChattyId
 						userId={profile_name}
 						fontSize={12}
 					/>
-					<p className={'font-normal text-14 text-light-primary'}>{profile_message}</p>
+					<p className={'font-normal text-14 text-light-primary mt-8 mb-6'}>{profile_message}</p>
 					{/*follower & following*/}
-					<div className={'flex gap-32 mt-4'}>
+					<div className={'flex gap-32'}>
 						<p className={'flex items-center gap-4'}>
 							<span className="font-semibold text-16 text-light-primary">{follower}</span>
 							<span className={'text-sm font-normal text-light-primary'}>팔로워</span>
@@ -64,7 +72,7 @@ const Profile = ({
 
 				<div className={'flex justify-between items-center px-24 mt-24'}>
 					<CountItem
-						count={`${question_count.answered + question_count.unanswered}%`}
+						count={`${question_count.answered + question_count.unanswered}`}
 						label={'받은 질문 수'}
 					/>
 					<CountItem
@@ -72,7 +80,7 @@ const Profile = ({
 						label={'답변률'}
 					/>
 					<CountItem
-						count={'?'}
+						count={views}
 						label={'오늘 방문자 수'}
 					/>
 				</div>
@@ -85,7 +93,7 @@ export default Profile;
 
 type ItemProps = {
 	label: string;
-	count: string;
+	count: number | string;
 };
 
 const CountItem = ({ count, label }: ItemProps) => (

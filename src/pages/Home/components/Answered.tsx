@@ -1,8 +1,7 @@
 import React from 'react';
-import Card2 from '~/pages/Home/components/CardCompound';
+import Card2 from '~/pages/Home/components/Card';
 import Avatar from '~/components/Avatar/Avatar';
 import { QuestionModel } from '~/api/questions/model';
-import { previewAvatarImageSrc } from '~/constants/preview';
 import Icon from '~/components/Icon/Icon';
 // import { QuestionModel } from 'api/question/model';
 
@@ -15,7 +14,7 @@ type Props = {
 	profile_image: string;
 } & Omit<QuestionModel, 'pk'>;
 
-const AnsweredCard = ({ isAnony = true, created_date, content, answer_content }: Props) => {
+const AnsweredCard = ({ isAnony = true, created_date, content, answer_content, profile_image, username }: Props) => {
 	return (
 		<Card2.Container>
 			<Card2.More />
@@ -37,12 +36,12 @@ const AnsweredCard = ({ isAnony = true, created_date, content, answer_content }:
 						<div className="pr-8">
 							<Avatar
 								size={48}
-								src={previewAvatarImageSrc}
+								src={profile_image}
 							/>
 						</div>
 						<div className="flex flex-col">
 							<div className="flex flex-row items-start">
-								<Card2.Username username={'USERNAME'} />
+								<Card2.Username username={username} />
 								<Card2.UserId
 									userId="carrot-09"
 									isAnony={false}
@@ -59,7 +58,7 @@ const AnsweredCard = ({ isAnony = true, created_date, content, answer_content }:
 
 			<>
 				<div className="flex flex-row items-start mt-16">
-					<div className="rotate-180 mr-8">
+					<div className="rotate-270 mr-8">
 						<Icon
 							size={'1rem'}
 							icon={'arrowRight'}
@@ -71,12 +70,12 @@ const AnsweredCard = ({ isAnony = true, created_date, content, answer_content }:
 						<div className="mr-8">
 							<Avatar
 								size={48}
-								src={previewAvatarImageSrc}
+								src={profile_image}
 							/>
 						</div>
 						<div className="flex flex-col">
 							<div className="flex flex-row items-center">
-								<Card2.Username username={'USERNAME'} />
+								<Card2.Username username={username} />
 								<Card2.UserId
 									userId="carrot-09"
 									isAnony={false}
