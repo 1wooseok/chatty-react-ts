@@ -1,7 +1,7 @@
 import React from 'react';
 import Card2 from '~/pages/Home/components/Card';
 import Avatar from '~/components/Avatar/Avatar';
-import { QuestionModel } from '~/api/questions/model';
+import { QuestionModel } from '../../../api/questions/model';
 import Icon from '~/components/Icon/Icon';
 // import { QuestionModel } from 'api/question/model';
 

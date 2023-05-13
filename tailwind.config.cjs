@@ -84,14 +84,14 @@ module.exports = {
 			spacing: px0_500,
 			gap: px0_100,
 			fontFamily: {
-				suit: ['SUIT-Regular', 'sans-serif'],
+				suit: ['SUIT-Heavy', 'sans-serif'],
 			},
 		},
 		screens: {
-			mobile: '360px', // @media (min-width: 360px)
+			mobile: '420px', // @media (min-width: 420px)
 			tablet: '768px', // @media (min-width: 768px)
 			'under-tablet': { max: '767px' }, // @media (max-width: 767px)
-			'under-mobile': { max: '359px' }, // @media (max-width: 359px)
+			'under-mobile': { max: '419px' }, // @media (max-width: 419px)
 		},
 	},
 	// plugins: [require("./plugins/scrollbar-hide")]

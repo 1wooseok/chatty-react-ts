@@ -3,7 +3,7 @@ import Icon from '~/components/Icon/Icon';
 import Card2 from '~/pages/Home/components/Card';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { usePostQuestion } from '~/api/questions/query';
+import { usePostQuestion } from '../../../api/questions/query';
 import useToast from '~/components/Toast/useToast';
 import { AxiosError } from 'axios';
 import { useQueryClient } from '@tanstack/react-query';

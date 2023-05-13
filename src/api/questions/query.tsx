@@ -1,8 +1,8 @@
 // 질문하기
-import { useInfiniteQuery, useMutation } from '@tanstack/react-query';
-import { PostQuestionPayload, PostQuestionRes, QuestionApiRes } from './model';
+import { InfiniteData, useInfiniteQuery, useMutation } from '@tanstack/react-query';
+import { PostQuestionPayload, PostQuestionRes, QuestionApiRes, QuestionModel } from './model';
 import ChattyClient from '../HttpClient';
-import { QUERY_KEY } from '~/constants/queryKey';
+import { QUERY_KEY } from '../../constants/queryKey';
 
 export const usePostQuestion = () => {
 	return useMutation((payload: PostQuestionPayload): Promise<PostQuestionRes> => ChattyClient.post('/chatty', payload));
@@ -16,7 +16,7 @@ export const useAnswered = (username: string) =>
 		{
 			enabled: !!username,
 			getNextPageParam: lastPage => lastPage.next,
-			select: data => data?.pages?.flatMap(page => page?.results),
+			select: data => data?.pages?.flatMap(page => page?.results) as unknown as InfiniteData<QuestionModel>,
 			staleTime: 0,
 			cacheTime: 1000 * 5, // 10초,
 		}

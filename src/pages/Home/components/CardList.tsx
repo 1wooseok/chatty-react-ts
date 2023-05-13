@@ -1,7 +1,7 @@
-import { useAnswered } from '~/api/questions/query';
+import { useAnswered } from '../../../api/questions/query';
 import useIntersect from '~/hooks/useIntersect';
 import AnsweredCard from '~/pages/Home/components/Answered';
-import { QuestionModel } from '~/api/questions/model';
+import { QuestionModel } from '../../../api/questions/model';
 import Spinner from '~/components/Loading/Spinner';
 import React from 'react';
 
