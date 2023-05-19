@@ -9,8 +9,8 @@ const Desktop = () => {
 	const [isNavOpen, toggleIsNavOpen] = useBool(false);
 
 	const navItems = [
-		{ label: '공지사항', href: '#' },
-		{ label: '이용약관', href: '#' },
+		// { label: '공지사항', href: '#' },
+		// { label: '이용약관', href: '#' },
 		{ label: '문의하기', href: '#' },
 	];
 

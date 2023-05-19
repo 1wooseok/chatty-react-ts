@@ -1,8 +1,6 @@
+import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import ErrorBoundary from './components/Error/ErrorBoundary';
-import { Suspense } from 'react';
-import NotFound from '~/pages/Error/NotFound';
 import Spinner from '~/components/Loading/Spinner';
 import Home from '~/pages/Home/Home';
 import Toast from '~/components/Toast/Toast';
@@ -43,16 +41,16 @@ export default function App() {
 					<Route
 						path={'/:username'}
 						element={
-							<ErrorBoundary fallback={<NotFound />}>
-								<Suspense
-									fallback={
-										<div className={'w-screen h-screen flex items-center justify-center'}>
-											<Spinner />
-										</div>
-									}>
-									<Home />
-								</Suspense>
-							</ErrorBoundary>
+							// <ErrorBoundary fallback={<NotFound />}>
+							<Suspense
+								fallback={
+									<div className={'w-screen h-screen flex items-center justify-center'}>
+										<Spinner />
+									</div>
+								}>
+								<Home />
+							</Suspense>
+							// </ErrorBoundary>
 						}
 					/>
 				</Routes>

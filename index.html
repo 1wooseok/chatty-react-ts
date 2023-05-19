@@ -10,14 +10,18 @@
       href="/src/index.css"
     />
     <script>
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-      // resize
-      window.addEventListener('resize', () => {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-      })
+      let timeoutId = null;
+      const mobileHeight = () => {
+        if (timeoutId) {
+          clearTimeout(timeoutId); // avoid execution of previous timeouts
+        }
+        timeoutId = setTimeout(() => {
+          const doc = document.documentElement;
+          doc.style.setProperty('--mobile-height', `${window.innerHeight}px`)
+        }, 200);
+      };
+      window.addEventListener('resize', mobileHeight);
+      mobileHeight();
     </script>
   </head>
   <body>
