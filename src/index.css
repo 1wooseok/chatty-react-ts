@@ -8,8 +8,20 @@
 	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Heavy.woff2') format('woff2');
 }
 
+/*:root {*/
+/*	--text-color: red;*/
+/*	--text-size: 5rem;*/
+/*}*/
+
 body {
 	font-family: 'Pretendard-Variable', sans-serif;
+	height: 100vh;
+}
+
+@media only screen and (max-device-width: 640px) {
+	.module {
+		height: calc(var(--var, 1vh) * 100);
+	}
 }
 
 pre {
