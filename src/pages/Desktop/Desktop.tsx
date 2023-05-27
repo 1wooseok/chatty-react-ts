@@ -1,7 +1,6 @@
 import Logo from '~/components/Icon/Logo';
 import Icon from '~/components/Icon/Icon';
-import phoneLeft from '../../assets/phone-preview-left.png';
-import phoneRight from '../../assets/phone-preview-right.png';
+import phoneGroup from '../../assets/Group 235.png';
 import useBool from '~/hooks/useBool';
 import { AppStoreDownload } from '../../components/Icon/AppStoreDownload';
 
@@ -11,7 +10,8 @@ const Desktop = () => {
 	const navItems = [
 		// { label: '공지사항', href: '#' },
 		// { label: '이용약관', href: '#' },
-		{ label: '문의하기', href: '#' },
+		{ label: '문의하기', href: 'mailto:clyde_dev@icloud.com' },
+		{ label: '채티 공식계정', href: '/chatty' },
 	];
 
 	const APPSTORE_LINK = '#';
@@ -96,21 +96,26 @@ const Desktop = () => {
 						</div>
 					</div>
 
-					<div className="relative mobile:w-500 mobile:h-500 under-mobile:w-screen under-mobile:mt-72">
+					<div className="relative mobile:w-500 mobile:h-500 under-mobile:w-screen under-mobile:mt-4">
 						<img
-							src={phoneLeft}
-							alt={'preview'}
-							className={
-								'absolute mobile:top-60 under-mobile:top-50 under-mobile:left-[-70px] under-mobile:max-h-400 max-h-500'
-							}
+							src={phoneGroup}
+							alt={'sample image'}
+							className="w-auto h-auto object-contain"
 						/>
-						<img
-							src={phoneRight}
-							alt={'preview'}
-							className={
-								'absolute mobile:right-[-132px] mobile:top-[-100px]  under-mobile:top-[-80px] under-mobile:right-[-30px] under-mobile:max-h-400 max-h-500'
-							}
-						/>
+						{/*	<img*/}
+						{/*		src={phoneLeft}*/}
+						{/*		alt={'preview'}*/}
+						{/*		className={*/}
+						{/*			'absolute mobile:top-60 under-mobile:top-50 under-mobile:left-[-70px] under-mobile:max-h-400 max-h-500'*/}
+						{/*		}*/}
+						{/*	/>*/}
+						{/*	<img*/}
+						{/*		src={phoneRight}*/}
+						{/*		alt={'preview'}*/}
+						{/*		className={*/}
+						{/*			'absolute mobile:right-[-132px] mobile:top-[-100px]  under-mobile:top-[-80px] under-mobile:right-[-30px] under-mobile:max-h-400 max-h-500'*/}
+						{/*		}*/}
+						{/*	/>*/}
 					</div>
 				</div>
 			</div>

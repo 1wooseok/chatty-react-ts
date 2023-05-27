@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import * as Sentry from '@sentry/react';
 import NotFound from './pages/Error/NotFound';
+import './index.css';
 
 Sentry.init({
 	dsn: 'https://77ec0c2e21604ed185bcd63160d17cbc@o4505182036885504.ingest.sentry.io/4505182040227840',

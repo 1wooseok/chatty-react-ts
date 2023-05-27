@@ -7,10 +7,11 @@ import React from 'react';
 
 type Props = {
 	username: string;
+	userId: string;
 	profile_image: string;
 };
 
-const CardList = ({ username, profile_image }: Props) => {
+const CardList = ({ username, userId, profile_image }: Props) => {
 	const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useAnswered(username);
 
 	const fetchNext = () => {
@@ -51,6 +52,7 @@ const CardList = ({ username, profile_image }: Props) => {
 				<AnsweredCard
 					key={idx}
 					isAnony={true}
+					userId={userId}
 					username={username}
 					content={d.content}
 					answer_content={d.answer_content}

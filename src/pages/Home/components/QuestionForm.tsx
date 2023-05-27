@@ -8,6 +8,7 @@ import useToast from '~/components/Toast/useToast';
 import { AxiosError } from 'axios';
 import { useQueryClient } from '@tanstack/react-query';
 import { QUERY_KEY } from '~/constants/queryKey';
+import Spinner from '../../../components/Loading/Spinner';
 
 type Props = {
 	toggleOpen: () => void;
@@ -18,7 +19,7 @@ const QuestionForm = ({ toggleOpen }: Props) => {
 	const { username = '' } = useParams();
 	const openToast = useToast();
 	const [content, setContent] = useState('');
-	const { mutate } = usePostQuestion();
+	const { mutate, isLoading } = usePostQuestion();
 
 	const onSubmit = () => {
 		mutate(
@@ -83,11 +84,13 @@ const QuestionForm = ({ toggleOpen }: Props) => {
 				<button
 					// onClick={onSubmit}
 					onClick={onSubmit}
-					disabled={content.length === 0}
+					disabled={content.length === 0 || isLoading}
 					className={
 						'absolute bottom-20 w-11/12 self-center h-60 bg-main-primary flex items-center justify-center rounded-2xl'
 					}>
-					<span className={'text-white font-semibold font-normal'}>확인</span>
+					<span className={'text-white font-semibold font-normal'}>
+						{isLoading ? <Spinner color={'white'} /> : '확인'}
+					</span>
 				</button>
 			</div>
 		</Dimmer>

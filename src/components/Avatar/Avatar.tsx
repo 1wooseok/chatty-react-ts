@@ -16,7 +16,7 @@ const Avatar = ({ src, size, hasBorder, borderColor = 'white' }: AvatarProps) =>
 				border: hasBorder ? `2px solid ${borderColor}` : 'none',
 			}}>
 			<img
-				className={'w-full h-full rounded-full'}
+				className={'w-full h-full rounded-full object-cover'}
 				src={src}
 			/>
 		</div>

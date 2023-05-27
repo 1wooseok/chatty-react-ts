@@ -29,6 +29,7 @@ const Profile = ({
 					src={background_image}
 					className={'object-cover w-full h-full'}
 					alt={'background'}
+					style={{ objectFit: 'cover' }}
 				/>
 				<div className={'absolute bottom-[-48px] left-16'}>
 					<Avatar

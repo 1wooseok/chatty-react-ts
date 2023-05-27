@@ -1,20 +1,26 @@
 import React from 'react';
-import Card2 from '~/pages/Home/components/Card';
-import Avatar from '~/components/Avatar/Avatar';
-import { QuestionModel } from '../../../api/questions/model';
 import Icon from '~/components/Icon/Icon';
-// import { QuestionModel } from 'api/question/model';
+import Avatar from '~/components/Avatar/Avatar';
+import Card2 from '~/pages/Home/components/Card';
+import { QuestionModel } from '../../../api/questions/model';
 
-// 1. From Anony
-// 2. From Friend
 type Props = {
 	isPinned?: boolean;
 	isAnony: boolean;
+	userId: string;
 	username: string;
 	profile_image: string;
 } & Omit<QuestionModel, 'pk'>;
 
-const AnsweredCard = ({ isAnony = true, created_date, content, answer_content, profile_image, username }: Props) => {
+const AnsweredCard = ({
+	isAnony = true,
+	userId,
+	created_date,
+	content,
+	answer_content,
+	profile_image,
+	username,
+}: Props) => {
 	return (
 		<Card2.Container>
 			<Card2.More />
@@ -24,7 +30,7 @@ const AnsweredCard = ({ isAnony = true, created_date, content, answer_content, p
 					<div className="flex items-center mb-4">
 						<span className="text-main-primary text-xs pr-4">To </span>
 						<Card2.UserId
-							userId="rre1102"
+							userId={userId}
 							isAnony={true}
 						/>
 					</div>
@@ -43,7 +49,7 @@ const AnsweredCard = ({ isAnony = true, created_date, content, answer_content, p
 							<div className="flex flex-row items-start">
 								<Card2.Username username={username} />
 								<Card2.UserId
-									userId="carrot-09"
+									userId={userId}
 									isAnony={false}
 								/>
 								<Card2.Time created_date={created_date} />
@@ -77,7 +83,7 @@ const AnsweredCard = ({ isAnony = true, created_date, content, answer_content, p
 							<div className="flex flex-row items-center">
 								<Card2.Username username={username} />
 								<Card2.UserId
-									userId="carrot-09"
+									userId={userId}
 									isAnony={false}
 								/>
 								<Card2.Time created_date={created_date} />

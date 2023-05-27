@@ -56,6 +56,7 @@ const Home = () => {
 
 			<CardList
 				username={username}
+				userId={profile.profile_name}
 				profile_image={profile.profile_image}
 			/>
 
