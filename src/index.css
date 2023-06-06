@@ -47,20 +47,9 @@ pre {
 		0 0 0 rgba(0, 0, 0, 0.03);
 }
 
-/*.spinner {*/
-/*	width: 28px;*/
-/*	height: 28px;*/
-/*	border-radius: 50%;*/
-/*	border: 3px solid #fe7c58;*/
-/*	border-top-color: transparent;*/
-/*	animation: spin 1s linear infinite;*/
-/*}*/
-
-/*@keyframes spin {*/
-/*	to {*/
-/*		transform: rotate(360deg);*/
-/*	}*/
-/*}*/
+.Toastify__toast {
+	border-radius: 12px;
+}
 
 .spinner,
 .spinner:after {

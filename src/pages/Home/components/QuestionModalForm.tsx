@@ -3,21 +3,21 @@ import Icon from '~/components/Icon/Icon';
 import Card2 from '~/pages/Home/components/Card';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { usePostQuestion } from '../../../api/questions/query';
-import useToast from '~/components/Toast/useToast';
+import { usePostQuestion } from '~/api/questions/query';
 import { AxiosError } from 'axios';
 import { useQueryClient } from '@tanstack/react-query';
 import { QUERY_KEY } from '~/constants/queryKey';
-import Spinner from '../../../components/Loading/Spinner';
+import Spinner from '~/components/Loading/Spinner';
+import { toast } from 'react-toastify';
 
-type Props = {
-	toggleOpen: () => void;
-};
+export interface ModalProps {
+	isOpen: boolean;
+	toggleModal: () => void;
+}
 
-const QuestionForm = ({ toggleOpen }: Props) => {
+const QuestionModalForm = ({ isOpen, toggleModal }: ModalProps) => {
 	const queryClient = useQueryClient();
 	const { username = '' } = useParams();
-	const openToast = useToast();
 	const [content, setContent] = useState('');
 	const { mutate, isLoading } = usePostQuestion();
 
@@ -29,32 +29,33 @@ const QuestionForm = ({ toggleOpen }: Props) => {
 			},
 			{
 				onSuccess: () => {
-					openToast({
-						type: 'success',
-						message: '질문이 전송되었습니다!',
-					});
-					toggleOpen();
 					queryClient.invalidateQueries([QUERY_KEY.PROFILE, username]);
+					toast('질문이 전송되었습니다.');
+					toggleModal();
 				},
 				onError: err => {
 					const error = err as AxiosError;
 					const errorMsg = error?.response?.data as string;
 
-					openToast({
-						type: 'error',
-						message: errorMsg || '알수없는 오류가 발생했습니다!',
-					});
+					toast(errorMsg || '알수없는 오류가 발생했습니다.');
 				},
 			}
 		);
 	};
 
+	if (!isOpen) {
+		return null;
+	}
+
 	return (
-		<Dimmer onClick={toggleOpen}>
-			<div className={'absolute z-40 bottom-0 w-screen h-340 bg-white rounded-t-2xl p-20 flex flex-col gap-16'}>
+		<Dimmer onClick={toggleModal}>
+			<div
+				className={
+					'popUp absolute z-40 bottom-0 left-1/2 w-screen  max-w-lg h-340 bg-white rounded-t-2xl p-20 flex flex-col gap-16 translate-x-[-50%]'
+				}>
 				<div className={'flex justify-between items-center'}>
 					<p className={'font-bold text-20 text-light-primary'}>질문 작성</p>
-					<button onClick={toggleOpen}>
+					<button onClick={toggleModal}>
 						<Icon
 							size={'24px'}
 							icon={'close'}
@@ -82,19 +83,17 @@ const QuestionForm = ({ toggleOpen }: Props) => {
 				</div>
 
 				<button
-					// onClick={onSubmit}
 					onClick={onSubmit}
 					disabled={content.length === 0 || isLoading}
+					style={{ opacity: content.length === 0 ? 0.8 : 1 }}
 					className={
 						'absolute bottom-20 w-11/12 self-center h-60 bg-main-primary flex items-center justify-center rounded-2xl'
 					}>
-					<span className={'text-white font-semibold font-normal'}>
-						{isLoading ? <Spinner color={'white'} /> : '확인'}
-					</span>
+					<span className={'text-white font-normal'}>{isLoading ? <Spinner color={'white'} /> : '확인'}</span>
 				</button>
 			</div>
 		</Dimmer>
 	);
 };
 
-export default QuestionForm;
+export default QuestionModalForm;

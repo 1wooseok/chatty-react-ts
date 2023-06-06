@@ -86,6 +86,15 @@ module.exports = {
 			fontFamily: {
 				suit: ['SUIT-Heavy', 'sans-serif'],
 			},
+			animation: {
+				slide: 'spin 3s linear infinite',
+			},
+			keyframes: {
+				popUp: {
+					'0%': { transform: 'translateY(340px)' },
+					'100%': { transform: 'translateY(0px)' },
+				},
+			},
 		},
 		screens: {
 			mobile: '420px', // @media (min-width: 420px)

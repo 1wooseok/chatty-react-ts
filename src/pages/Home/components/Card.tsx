@@ -2,6 +2,7 @@ import React from 'react';
 import { getElapsedTime, ServerDateFormat } from '~/utils/date';
 import Icon from '~/components/Icon/Icon';
 import { IconTypes } from '~/types/components/icon';
+import useClipBoard from '../../../hooks/useClipBoard';
 
 const Container = ({ children }: { children: React.ReactNode }) => {
 	return <div className="relative shadow-lg flex flex-col bg-white rounded-2xl p-16">{children}</div>;
@@ -67,10 +68,13 @@ type UtilBrnProps = {
 	count?: number;
 	color?: string;
 	stroke?: number;
+	onClick?: () => void;
 };
 
-const UtilBtn = ({ icon, count, color, stroke }: UtilBrnProps) => (
-	<button className="flex flex-row items-center gap-4">
+const UtilBtn = ({ icon, count, color, stroke, onClick }: UtilBrnProps) => (
+	<button
+		onClick={onClick}
+		className="flex flex-row items-center gap-4">
 		<Icon
 			className="text-base"
 			size={'16px'}
@@ -90,7 +94,7 @@ const Heart = () => {
 	return (
 		<UtilBtn
 			icon={'heart'}
-			count={3125}
+			count={0}
 			color={'white'}
 		/>
 	);
@@ -100,15 +104,18 @@ const BookMark = () => {
 	return (
 		<UtilBtn
 			icon={'bookmark'}
-			count={31235}
+			count={0}
 			color={'white'}
 		/>
 	);
 };
 
 const Share = () => {
+	const copyToClipboard = useClipBoard();
+
 	return (
 		<UtilBtn
+			onClick={() => copyToClipboard(window.location.href)}
 			icon={'uploadTray'}
 			color={'white'}
 		/>

@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import CardList from '~/pages/Home/components/CardList';
 import FloatingButton from '~/components/Floating/FloatingButton';
 import Icon from '~/components/Icon/Icon';
-import QuestionForm from '~/pages/Home/components/QuestionForm';
+import QuestionModalForm from './components/QuestionModalForm';
 import useBool from '~/hooks/useBool';
 import AppModal from '~/components/Modal/AppModal';
 
@@ -75,8 +75,14 @@ const Home = () => {
 				onClick={toggleOpen}
 			/>
 
-			{isOpen && <QuestionForm toggleOpen={toggleOpen} />}
-			{isAppOpen && <AppModal toggleAppOpen={toggleAppOpen} />}
+			<QuestionModalForm
+				isOpen={isOpen}
+				toggleModal={toggleOpen}
+			/>
+			<AppModal
+				isOpen={isAppOpen}
+				toggleModal={toggleAppOpen}
+			/>
 		</div>
 	);
 };

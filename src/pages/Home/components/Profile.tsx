@@ -2,8 +2,8 @@ import ChattyId from '~/components/Label/ChattyId';
 import Avatar from '~/components/Avatar/Avatar';
 import Logo from '~/components/Icon/Logo';
 import { ProfileModel } from '~/api/profile/model';
-import useBool from '../../../hooks/useBool';
-import AppModal from '../../../components/Modal/AppModal';
+import useBool from '~/hooks/useBool';
+import AppModal from '~/components/Modal/AppModal';
 
 const Profile = ({
 	profile_message,
@@ -22,7 +22,12 @@ const Profile = ({
 
 	return (
 		<>
-			{isAppOpen && <AppModal toggleAppOpen={toggleAppOpen} />}
+			{isAppOpen && (
+				<AppModal
+					isOpen={isAppOpen}
+					toggleModal={toggleAppOpen}
+				/>
+			)}
 			{/* Background & Avatar */}
 			<div className={'relative w-full h-160 bg-white'}>
 				<img
@@ -42,13 +47,12 @@ const Profile = ({
 			{/*Username & UserId & Introduce*/}
 			<div className={'p-16 bg-white'}>
 				<div className={'flex justify-end'}>
-					<button className="rounded-[17px] border-pink-main border-1 flex items-center p-8 gap-[8px]">
+					<button
+						onClick={toggleAppOpen}
+						className="rounded-[17px] border-pink-main border-1 flex items-center p-8 gap-[8px]">
 						<Logo size={20} />
-						<button onClick={toggleAppOpen}>
-							<span className="chatty">Chatty?</span>
-						</button>
+						<span className="chatty">Chatty?</span>
 					</button>
-					{/*<button className={'bg-main-pink-600 text-white rounded-2xl px-20 py-8 text-14 font-semibold'}>팔로우</button>*/}
 				</div>
 
 				<div className={'flex flex-col gap-0 justify-center-center'}>

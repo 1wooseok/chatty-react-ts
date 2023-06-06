@@ -14,7 +14,7 @@ const Desktop = () => {
 		{ label: '채티 공식계정', href: '/chatty' },
 	];
 
-	const APPSTORE_LINK = '#';
+	const APPSTORE_LINK = import.meta.env.VITE_APP_STORE_LINK;
 
 	return (
 		<div>
@@ -30,7 +30,12 @@ const Desktop = () => {
 						<ul className="under-mobile:hidden h-full m-9 flex items-center gap-60 under-mobile:gap-16 text-grey-900 font-semibold">
 							{navItems.map(({ label, href }) => (
 								<li key={label}>
-									<a href={href}>{label}</a>
+									<a
+										href={href}
+										target="_blank"
+										rel="noreferrer">
+										{label}
+									</a>
 								</li>
 							))}
 						</ul>
@@ -38,7 +43,9 @@ const Desktop = () => {
 						<div className="mobile:hidden flex items-center">
 							<a
 								href={APPSTORE_LINK}
-								className="mr-12 inline-flex items-center justify-center w-76 h-30 rounded-2xl text-12 bg-main-primary text-white">
+								target={'_blank'}
+								className="mr-12 inline-flex items-center justify-center w-76 h-30 rounded-2xl text-12 bg-main-primary text-white"
+								rel="noreferrer">
 								앱 다운로드
 							</a>
 							<button onClick={toggleIsNavOpen}>
@@ -90,7 +97,10 @@ const Desktop = () => {
 						</p>
 
 						<div className={'mt-32'}>
-							<a href={APPSTORE_LINK}>
+							<a
+								href={APPSTORE_LINK}
+								target={'_blank'}
+								rel="noreferrer">
 								<AppStoreDownload />
 							</a>
 						</div>

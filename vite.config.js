@@ -12,7 +12,6 @@ export default defineConfig({
 		react(),
 		tailwindcss(),
 		tsconfigPaths(),
-		// ViteFaviconsPlugin(),
 		ViteFaviconsPlugin({
 			logo: 'src/assets/logo.png',
 			favicons: {
@@ -20,9 +19,14 @@ export default defineConfig({
 			},
 		}),
 	],
+	build: {
+		sourcemap: true,
+	},
+	server: {
+		host: true,
+	},
 	resolve: {
 		alias: [
-			{ find: '~', replacement: path.resolve(__dirname, 'src') },
 			{
 				find: '~/components',
 				replacement: path.resolve(__dirname, 'src/components'),
@@ -59,6 +63,7 @@ export default defineConfig({
 				find: '~/api',
 				replacement: path.resolve(__dirname, 'src/api'),
 			},
+			{ find: '~', replacement: path.resolve(__dirname, 'src') },
 		],
 	},
 });

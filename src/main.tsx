@@ -3,7 +3,6 @@ import App from './App';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import * as Sentry from '@sentry/react';
-import NotFound from './pages/Error/NotFound';
 import './index.css';
 
 Sentry.init({
@@ -20,11 +19,7 @@ const root = createRoot(document.getElementById('root')!); // createRoot(contain
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<Sentry.ErrorBoundary
-				showDialog={false}
-				fallback={<NotFound />}>
-				<App />
-			</Sentry.ErrorBoundary>
+			<App />
 		</BrowserRouter>
 	</React.StrictMode>
 );

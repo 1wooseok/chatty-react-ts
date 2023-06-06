@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from '~/components/Icon/Icon';
 import Avatar from '~/components/Avatar/Avatar';
 import Card2 from '~/pages/Home/components/Card';
-import { QuestionModel } from '../../../api/questions/model';
+import { QuestionModel } from '~/api/questions/model';
 
 type Props = {
 	isPinned?: boolean;
@@ -67,7 +67,7 @@ const AnsweredCard = ({
 					<div className="rotate-270 mr-8">
 						<Icon
 							size={'1rem'}
-							icon={'arrowRight'}
+							icon={'answerArrow'}
 							fillColor={'#FE7C58'}
 							strokeColor={'#FE7C58'}
 						/>
