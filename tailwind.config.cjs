@@ -86,14 +86,25 @@ module.exports = {
 			fontFamily: {
 				suit: ['SUIT-Heavy', 'sans-serif'],
 			},
-			animation: {
-				slide: 'spin 3s linear infinite',
-			},
 			keyframes: {
 				popUp: {
 					'0%': { transform: 'translateY(340px)' },
 					'100%': { transform: 'translateY(0px)' },
 				},
+				fadeInUp: {
+					'0%': {
+						opacity: 0,
+						transform: 'translate3d(0, 100%, 0)',
+					},
+					'100%': {
+						opacity: 1,
+						transform: 'translateZ(0)',
+					},
+				},
+			},
+			animation: {
+				slide: 'spin 3s linear infinite',
+				'text-fadeInUp': 'fadeInUp 0.7s linear',
 			},
 		},
 		screens: {

@@ -86,7 +86,7 @@ export default function Profile({
 					/>
 					<CountItem
 						count={views}
-						label={'오늘 방문자 수'}
+						label={'총 방문자 수'}
 					/>
 				</div>
 			</div>
