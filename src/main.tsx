@@ -18,7 +18,7 @@ Sentry.init({
 const root = createRoot(document.getElementById('root')!); // createRoot(container!) if you use TypeScript
 root.render(
 	<React.StrictMode>
-		<BrowserRouter>
+		<BrowserRouter basename="/">
 			<App />
 		</BrowserRouter>
 	</React.StrictMode>
