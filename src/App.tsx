@@ -55,8 +55,8 @@ export default function App() {
 						}
 					/>
 					<Route
-						path={'*'}
-						element={<Desktop />}
+						path="/*"
+						element={<NotFound />}
 					/>
 				</Routes>
 				<Toast />
