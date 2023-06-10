@@ -54,6 +54,10 @@ export default function App() {
 							</ErrorBoundary>
 						}
 					/>
+					<Route
+						path={'*'}
+						element={<Desktop />}
+					/>
 				</Routes>
 				<Toast />
 			</QueryClientProvider>

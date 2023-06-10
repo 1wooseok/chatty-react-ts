@@ -10,27 +10,23 @@ import QuestionModalForm from './components/QuestionModalForm';
 import useBool from '~/hooks/useBool';
 import AppModal from '~/components/Modal/AppModal';
 
-const Home = () => {
+export default function Home() {
 	const { username = '' } = useParams();
 	const { data: profile } = useProfile(username);
 	const [activeIdx] = useState<number>(0);
 	const [isOpen, toggleOpen] = useBool(false);
 	const [isAppOpen, toggleAppOpen] = useBool(false);
 
-	const onTabChange = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		const dom = e.target as HTMLSpanElement;
-		const tabName = dom.textContent;
+	function onTabChange(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+		const target = e.target as HTMLSpanElement;
+		const tabName = target.textContent;
 
 		if (tabName !== '답변 완료') {
 			toggleAppOpen();
 		}
-	};
-
-	if (!profile) {
-		return null;
 	}
 
-	return (
+	return !profile ? null : (
 		<div className={'w-screen h-screen overflow-x-hidden'}>
 			<Profile
 				question_count={profile.question_count}
@@ -85,6 +81,4 @@ const Home = () => {
 			/>
 		</div>
 	);
-};
-
-export default Home;
+}

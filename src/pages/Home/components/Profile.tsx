@@ -5,7 +5,7 @@ import { ProfileModel } from '~/api/profile/model';
 import useBool from '~/hooks/useBool';
 import AppModal from '~/components/Modal/AppModal';
 
-const Profile = ({
+export default function Profile({
 	profile_message,
 	profile_name,
 	profile_image,
@@ -17,15 +17,15 @@ const Profile = ({
 	username,
 	question_count,
 	views,
-}: ProfileModel) => {
-	const [isAppOpen, toggleAppOpen] = useBool(false);
+}: ProfileModel) {
+	const [isAppDownModalOpen, toggleAppDownModal] = useBool(false);
 
 	return (
 		<>
-			{isAppOpen && (
+			{isAppDownModalOpen && (
 				<AppModal
-					isOpen={isAppOpen}
-					toggleModal={toggleAppOpen}
+					isOpen={isAppDownModalOpen}
+					toggleModal={toggleAppDownModal}
 				/>
 			)}
 			{/* Background & Avatar */}
@@ -48,7 +48,7 @@ const Profile = ({
 			<div className={'p-16 bg-white'}>
 				<div className={'flex justify-end'}>
 					<button
-						onClick={toggleAppOpen}
+						onClick={toggleAppDownModal}
 						className="rounded-[17px] border-pink-main border-1 flex items-center p-8 gap-[8px]">
 						<Logo size={20} />
 						<span className="chatty">Chatty?</span>
@@ -92,18 +92,18 @@ const Profile = ({
 			</div>
 		</>
 	);
-};
-
-export default Profile;
+}
 
 type ItemProps = {
 	label: string;
 	count: number | string;
 };
 
-const CountItem = ({ count, label }: ItemProps) => (
-	<div className={'flex flex-col items-center gap-4'}>
-		<span className={'font-medium'}>{count}</span>
-		<span className={'font-normal text-light-secondary text-12'}>{label}</span>
-	</div>
-);
+function CountItem({ count, label }: ItemProps) {
+	return (
+		<div className={'flex flex-col items-center gap-4'}>
+			<span className={'font-medium'}>{count}</span>
+			<span className={'font-normal text-light-secondary text-12'}>{label}</span>
+		</div>
+	);
+}

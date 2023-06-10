@@ -1,11 +1,11 @@
 import Logo from '~/components/Icon/Logo';
 import Icon from '~/components/Icon/Icon';
-import phoneGroup from '../../assets/Group 235.png';
+import phoneGroup from '~/assets/Group 235.png';
 import useBool from '~/hooks/useBool';
-import { AppStoreDownload } from '../../components/Icon/AppStoreDownload';
+import { AppStoreDownload } from '~/components/Icon/AppStoreDownload';
 
-const Desktop = () => {
-	const [isNavOpen, toggleIsNavOpen] = useBool(false);
+export default function Desktop() {
+	const [isNavOpen, toggleNav] = useBool(false);
 
 	const navItems = [
 		// { label: '공지사항', href: '#' },
@@ -48,7 +48,7 @@ const Desktop = () => {
 								rel="noreferrer">
 								앱 다운로드
 							</a>
-							<button onClick={toggleIsNavOpen}>
+							<button onClick={toggleNav}>
 								<Icon
 									size={'28px'}
 									icon={isNavOpen ? 'close' : 'hamberger'}
@@ -131,6 +131,4 @@ const Desktop = () => {
 			</div>
 		</div>
 	);
-};
-
-export default Desktop;
+}

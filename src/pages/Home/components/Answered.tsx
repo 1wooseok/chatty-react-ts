@@ -12,7 +12,7 @@ type Props = {
 	profile_image: string;
 } & Omit<QuestionModel, 'pk'>;
 
-const AnsweredCard = ({
+export default function AnsweredCard({
 	isAnony = true,
 	userId,
 	created_date,
@@ -20,7 +20,7 @@ const AnsweredCard = ({
 	answer_content,
 	profile_image,
 	username,
-}: Props) => {
+}: Props) {
 	return (
 		<Card2.Container>
 			<Card2.More />
@@ -99,6 +99,4 @@ const AnsweredCard = ({
 			<Card2.Footer />
 		</Card2.Container>
 	);
-};
-
-export default AnsweredCard;
+}

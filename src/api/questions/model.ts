@@ -1,4 +1,4 @@
-import { ServerDateFormat } from '../../utils/date';
+import { ServerDateFormat } from '~/utils/date';
 
 export type QuestionModel = {
 	pk: number;

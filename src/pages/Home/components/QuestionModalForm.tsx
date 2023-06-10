@@ -4,50 +4,26 @@ import Card2 from '~/pages/Home/components/Card';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { usePostQuestion } from '~/api/questions/query';
-import { AxiosError } from 'axios';
-import { useQueryClient } from '@tanstack/react-query';
-import { QUERY_KEY } from '~/constants/queryKey';
 import Spinner from '~/components/Loading/Spinner';
-import { toast } from 'react-toastify';
 
 export interface ModalProps {
 	isOpen: boolean;
 	toggleModal: () => void;
 }
 
-const QuestionModalForm = ({ isOpen, toggleModal }: ModalProps) => {
-	const queryClient = useQueryClient();
+export default function QuestionModalForm({ isOpen, toggleModal }: ModalProps) {
 	const { username = '' } = useParams();
 	const [content, setContent] = useState('');
-	const { mutate, isLoading } = usePostQuestion();
+	const { mutQuestion, isMutating } = usePostQuestion({ toggleModal });
 
-	const onSubmit = () => {
-		mutate(
-			{
-				content,
-				target_profile: username,
-			},
-			{
-				onSuccess: () => {
-					queryClient.invalidateQueries([QUERY_KEY.PROFILE, username]);
-					toast('질문이 전송되었습니다.');
-					toggleModal();
-				},
-				onError: err => {
-					const error = err as AxiosError;
-					const errorMsg = error?.response?.data as string;
-
-					toast(errorMsg || '알수없는 오류가 발생했습니다.');
-				},
-			}
-		);
-	};
-
-	if (!isOpen) {
-		return null;
+	function onSubmit() {
+		mutQuestion({
+			content,
+			target_profile: username,
+		});
 	}
 
-	return (
+	return !isOpen ? null : (
 		<Dimmer onClick={toggleModal}>
 			<div
 				className={
@@ -84,16 +60,14 @@ const QuestionModalForm = ({ isOpen, toggleModal }: ModalProps) => {
 
 				<button
 					onClick={onSubmit}
-					disabled={content.length === 0 || isLoading}
+					disabled={content.length === 0 || isMutating}
 					style={{ opacity: content.length === 0 ? 0.8 : 1 }}
 					className={
 						'absolute bottom-20 w-11/12 self-center h-60 bg-main-primary flex items-center justify-center rounded-2xl'
 					}>
-					<span className={'text-white font-normal'}>{isLoading ? <Spinner color={'white'} /> : '확인'}</span>
+					<span className={'text-white font-normal'}>{isMutating ? <Spinner color={'white'} /> : '확인'}</span>
 				</button>
 			</div>
 		</Dimmer>
 	);
-};
-
-export default QuestionModalForm;
+}
