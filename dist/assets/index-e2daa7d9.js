@@ -10819,7 +10819,7 @@ function D2({
 						children: [
 							v(uu, { count: `${l.answered + l.unanswered}`, label: '받은 질문 수' }),
 							v(uu, { count: `${o}%`, label: '답변률' }),
-							v(uu, { count: u, label: '오늘 방문자 수' }),
+							v(uu, { count: u, label: '총 방문자 수' }),
 						],
 					}),
 				],
@@ -13171,7 +13171,7 @@ function u5({ toggleModal: e }) {
 	function i(s) {
 		n(s, {
 			onSuccess: () => {
-				t.invalidateQueries([df.PROFILE, s.target_profile]), K('질문이 전송되었습니다.'), e();
+				t.invalidateQueries([df.PROFILE, s.username]), K('질문이 전송되었습니다.'), e();
 			},
 			onError: o => {
 				var u;
@@ -13541,7 +13541,7 @@ function N5({ isOpen: e, toggleModal: t }) {
 		[r, i] = C.useState(''),
 		{ mutQuestion: s, isMutating: o } = u5({ toggleModal: t });
 	function a() {
-		s({ content: r, target_profile: n });
+		s({ content: r, username: n });
 	}
 	return e
 		? v(mg, {
@@ -23229,4 +23229,4 @@ rx({
 });
 const _x = py(document.getElementById('root'));
 _x.render(v(J.StrictMode, { children: v(Uv, { children: v(mx, {}) }) }));
-//# sourceMappingURL=index-4594c763.js.map
+//# sourceMappingURL=index-e2daa7d9.js.map

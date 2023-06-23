@@ -15,7 +15,7 @@ export function usePostQuestion({ toggleModal }: { toggleModal: () => void }) {
 	function mutQuestion(payload: PostQuestionPayload) {
 		mutate(payload, {
 			onSuccess: () => {
-				queryClient.invalidateQueries([QUERY_KEY.PROFILE, payload.target_profile]);
+				queryClient.invalidateQueries([QUERY_KEY.PROFILE, payload.username]);
 				toast('질문이 전송되었습니다.');
 				toggleModal();
 			},

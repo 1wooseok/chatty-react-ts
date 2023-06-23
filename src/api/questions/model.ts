@@ -14,7 +14,7 @@ export type QuestionApiRes = {
 };
 
 export type PostQuestionPayload = {
-	target_profile: string;
+	username: string;
 	content: string;
 };
 
@@ -23,5 +23,5 @@ export type PostQuestionRes = {
 	info: string;
 	content: string;
 	created_date: ServerDateFormat;
-	target_profile: string;
+	username: string;
 };

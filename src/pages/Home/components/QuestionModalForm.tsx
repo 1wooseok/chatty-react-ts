@@ -19,7 +19,7 @@ export default function QuestionModalForm({ isOpen, toggleModal }: ModalProps) {
 	function onSubmit() {
 		mutQuestion({
 			content,
-			target_profile: username,
+			username,
 		});
 	}
 
