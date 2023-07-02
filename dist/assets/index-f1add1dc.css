@@ -339,6 +339,9 @@ video {
 .bottom-80 {
 	bottom: 80px;
 }
+.bottom-88 {
+	bottom: 88px;
+}
 .bottom-\[-48px\] {
 	bottom: -48px;
 }
@@ -359,6 +362,9 @@ video {
 }
 .right-16 {
 	right: 16px;
+}
+.right-20 {
+	right: 20px;
 }
 .top-0 {
 	top: 0px;
@@ -850,6 +856,10 @@ video {
 .text-grey-600 {
 	--tw-text-opacity: 1;
 	color: rgb(128 128 128 / var(--tw-text-opacity));
+}
+.text-grey-700 {
+	--tw-text-opacity: 1;
+	color: rgb(102 102 102 / var(--tw-text-opacity));
 }
 .text-grey-900,
 .text-light-primary {
