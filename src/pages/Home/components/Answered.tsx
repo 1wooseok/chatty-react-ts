@@ -15,7 +15,6 @@ export default function AnsweredCard({ answer }: Props) {
 	return (
 		<Card2.Container>
 			<Card2.More />
-			{/*{isPinned ? <Card2.Pin /> : null}*/}
 			{/*Author*/}
 			{isAnony ? (
 				<>
@@ -25,6 +24,7 @@ export default function AnsweredCard({ answer }: Props) {
 							userId={profile.username}
 							isAnony={true}
 						/>
+						<Card2.Time created_date={created_date} />
 					</div>
 					<Card2.Content content={content} />
 				</>
@@ -38,7 +38,7 @@ export default function AnsweredCard({ answer }: Props) {
 							/>
 						</div>
 						<div className="flex flex-col">
-							<div className="flex flex-row items-start">
+							<div className="flex flex-row items-center">
 								<Card2.Username username={author.profile_name} />
 								<Card2.UserId
 									userId={author.username}
@@ -59,10 +59,11 @@ export default function AnsweredCard({ answer }: Props) {
 				<div className="flex flex-row items-start mt-16">
 					<div className="rotate-270 mr-8">
 						<Icon
-							size={'1rem'}
+							size={'1.5rem'}
 							icon={'answerArrow'}
 							fillColor={'#FE7C58'}
 							strokeColor={'#FE7C58'}
+							stroke={0.1}
 						/>
 					</div>
 					<div className="flex flex-row items-start">
@@ -73,7 +74,7 @@ export default function AnsweredCard({ answer }: Props) {
 							/>
 						</div>
 						<div className="flex flex-col">
-							<div className="flex flex-row items-center">
+							<div className="flex items-center">
 								<Card2.Username username={profile.profile_name} />
 								<Card2.UserId
 									userId={profile.username}

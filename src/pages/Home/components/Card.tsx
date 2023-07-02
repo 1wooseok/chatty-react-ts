@@ -2,7 +2,7 @@ import React from 'react';
 import { getElapsedTime, ServerDateFormat } from '~/utils/date';
 import Icon from '~/components/Icon/Icon';
 import { IconTypes } from '~/types/components/icon';
-import useClipBoard from '~/hooks/useClipBoard';
+import copyToClipBoard from '../../../hooks/copyToClipBoard';
 
 function Container({ children }: { children: React.ReactNode }) {
 	return <div className="relative shadow-lg flex flex-col bg-white rounded-2xl p-16">{children}</div>;
@@ -109,11 +109,9 @@ function BookMark() {
 }
 
 function Share() {
-	const copyToClipboard = useClipBoard();
-
 	return (
 		<UtilBtn
-			onClick={() => copyToClipboard(window.location.href)}
+			onClick={() => copyToClipBoard(window.location.href)}
 			icon={'uploadTray'}
 			color={'white'}
 		/>

@@ -9,7 +9,7 @@ import Icon from '~/components/Icon/Icon';
 import QuestionModalForm from './components/QuestionModalForm';
 import useBool from '~/hooks/useBool';
 import AppModal from '~/components/Modal/AppModal';
-// todo: 프로밀 이름, 닉네임 서로 바꾸기
+
 export default function Home() {
 	const { username = '' } = useParams();
 	const { data: profile } = useProfile(username);

@@ -56,11 +56,13 @@ export default function Profile({
 				</div>
 
 				<div className={'flex flex-col gap-0 justify-center-center'}>
-					<p className={'text-lg font-bold'}>{username}</p>
-					<ChattyId
-						userId={profile_name}
-						fontSize={12}
-					/>
+					<p className={'text-lg font-bold'}>{profile_name}</p>
+					<span className="text-light-secondary">
+						<ChattyId
+							userId={username}
+							fontSize={12}
+						/>
+					</span>
 					<p className={'font-normal text-14 text-light-primary mt-8 mb-6'}>{profile_message}</p>
 					{/*follower & following*/}
 					<div className={'flex gap-32'}>

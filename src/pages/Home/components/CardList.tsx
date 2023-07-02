@@ -4,7 +4,7 @@ import AnsweredCard from '~/pages/Home/components/Answered';
 import { QuestionModel } from '~/api/questions/model';
 import Spinner from '~/components/Loading/Spinner';
 import React from 'react';
-import useClipBoard from '~/hooks/useClipBoard';
+import copyToClipBoard from '~/hooks/copyToClipBoard';
 
 type Props = {
 	username: string;
@@ -35,8 +35,6 @@ const CardList = ({ username }: Props) => {
 };
 
 const EmptyQuestionUI = ({ pageBottomRef }: { pageBottomRef: React.MutableRefObject<null> }) => {
-	const copyToClipBoard = useClipBoard();
-
 	return (
 		<ul className={'flex flex-col items-center justify-center gap-16 y-16 px-20'}>
 			<div className="min-h-200 pt-16 w-full h-full flex items-center justify-center">

@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-const useClipBoard = () => (text: string) => {
+function copyToClipBoard(text: string): void {
 	if (navigator.clipboard) {
 		navigator.clipboard
 			.writeText(text)
@@ -12,7 +12,8 @@ const useClipBoard = () => (text: string) => {
 			});
 	} else {
 		if (!document.queryCommandSupported('copy')) {
-			return toast.error('복사하기가 지원되지 않는 브라우저입니다.');
+			toast.error('복사하기가 지원되지 않는 브라우저입니다.');
+			return;
 		}
 
 		const textarea = document.createElement('textarea');
@@ -26,8 +27,9 @@ const useClipBoard = () => (text: string) => {
 		textarea.select();
 		document.execCommand('copy');
 		document.body.removeChild(textarea);
+
 		toast('클립보드에 복사되었습니다.');
 	}
-};
+}
 
-export default useClipBoard;
+export default copyToClipBoard;

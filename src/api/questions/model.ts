@@ -1,7 +1,6 @@
 import { ServerDateFormat } from '~/utils/date';
 import { ProfileModel } from '~/api/profile/model';
 
-// todo: 시간 안맞는거 둘다 9시간 더하기
 export type QuestionModel = {
 	pk: number;
 	created_date: ServerDateFormat;

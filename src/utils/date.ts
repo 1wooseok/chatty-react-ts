@@ -5,7 +5,7 @@ export function getElapsedTime(date: ServerDateFormat): string {
 	const timeValue = new Date(date);
 	// console.log({ today, timeValue });
 	const NINE_HOUR = 1000 * 60 * 60 * 9;
-	const betweenTime = Math.floor((today.getTime() - (timeValue.getTime() + NINE_HOUR)) / 1000 / 60);
+	const betweenTime = Math.floor((today.getTime() + NINE_HOUR - (timeValue.getTime() + NINE_HOUR)) / 1000 / 60);
 
 	if (betweenTime < 1) {
 		return '방금전';

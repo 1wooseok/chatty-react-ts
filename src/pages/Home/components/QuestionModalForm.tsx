@@ -10,8 +10,6 @@ import { toast } from 'react-toastify';
 import { AxiosError } from 'axios';
 import { useQueryClient } from '@tanstack/react-query';
 
-// todo: usename userId 위치 바꾸기
-
 export interface ModalProps {
 	isOpen: boolean;
 	toggleModal: () => void;
@@ -19,7 +17,10 @@ export interface ModalProps {
 
 export default function QuestionModalForm({ isOpen, toggleModal }: ModalProps) {
 	const { username = '' } = useParams();
+	// client
+	const MAX_CONTENT_LENGTH = 100;
 	const [content, setContent] = useState('');
+	// server
 	const queryClient = useQueryClient();
 	const { mutate, isLoading: isMutating } = usePostQuestion();
 
@@ -80,10 +81,13 @@ export default function QuestionModalForm({ isOpen, toggleModal }: ModalProps) {
 						value={content}
 						onChange={e => setContent(e.target.value)}
 						placeholder={`${username} 에게 질문하기`}
-						maxLength={200}
+						maxLength={MAX_CONTENT_LENGTH}
 					/>
 				</div>
 
+				<span className="absolute right-20 bottom-88 text-sm text-grey-700">
+					{content.length} / {MAX_CONTENT_LENGTH}
+				</span>
 				<button
 					disabled={content.length === 0 || isMutating}
 					style={{ opacity: content.length === 0 ? 0.8 : 1 }}
