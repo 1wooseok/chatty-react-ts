@@ -1,9 +1,14 @@
 import { ServerDateFormat } from '~/utils/date';
+import { ProfileModel } from '~/api/profile/model';
 
+// todo: 시간 안맞는거 둘다 9시간 더하기
 export type QuestionModel = {
 	pk: number;
-	content: string;
 	created_date: ServerDateFormat;
+	answered_date: ServerDateFormat;
+	profile: Pick<ProfileModel, 'username' | 'profile_name' | 'profile_image' | 'background_image'>;
+	author: null | Pick<ProfileModel, 'username' | 'profile_name' | 'profile_image' | 'background_image'>;
+	content: string;
 	answer_content: string;
 };
 

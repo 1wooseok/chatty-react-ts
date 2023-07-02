@@ -10,9 +10,7 @@ import { toast } from 'react-toastify';
 import { AxiosError } from 'axios';
 import { useQueryClient } from '@tanstack/react-query';
 
-// todo: answered data scheme 바꾸기
 // todo: usename userId 위치 바꾸기
-// todo: 답변 등록후 입력창 초기화
 
 export interface ModalProps {
 	isOpen: boolean;
