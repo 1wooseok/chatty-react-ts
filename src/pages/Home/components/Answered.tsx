@@ -5,32 +5,24 @@ import Card2 from '~/pages/Home/components/Card';
 import { QuestionModel } from '~/api/questions/model';
 
 type Props = {
-	isPinned?: boolean;
-	isAnony: boolean;
-	userId: string;
-	username: string;
-	profile_image: string;
-} & Omit<QuestionModel, 'pk'>;
+	answer: Omit<QuestionModel, 'pk'>;
+};
 
-export default function AnsweredCard({
-	isAnony = true,
-	userId,
-	created_date,
-	content,
-	answer_content,
-	profile_image,
-	username,
-}: Props) {
+export default function AnsweredCard({ answer }: Props) {
+	const { answer_content, content, answered_date, created_date, author, profile } = answer;
+	const isAnony = author === null;
+
 	return (
 		<Card2.Container>
 			<Card2.More />
 			{/*{isPinned ? <Card2.Pin /> : null}*/}
+			{/*Author*/}
 			{isAnony ? (
 				<>
 					<div className="flex items-center mb-4">
 						<span className="text-main-primary text-xs pr-4">To </span>
 						<Card2.UserId
-							userId={userId}
+							userId={profile.username}
 							isAnony={true}
 						/>
 					</div>
@@ -42,14 +34,14 @@ export default function AnsweredCard({
 						<div className="pr-8">
 							<Avatar
 								size={48}
-								src={profile_image}
+								src={author.profile_image}
 							/>
 						</div>
 						<div className="flex flex-col">
 							<div className="flex flex-row items-start">
-								<Card2.Username username={username} />
+								<Card2.Username username={author.profile_name} />
 								<Card2.UserId
-									userId={userId}
+									userId={author.username}
 									isAnony={false}
 								/>
 								<Card2.Time created_date={created_date} />
@@ -62,6 +54,7 @@ export default function AnsweredCard({
 				</>
 			)}
 
+			{/*Answer*/}
 			<>
 				<div className="flex flex-row items-start mt-16">
 					<div className="rotate-270 mr-8">
@@ -76,17 +69,17 @@ export default function AnsweredCard({
 						<div className="mr-8">
 							<Avatar
 								size={48}
-								src={profile_image}
+								src={profile.profile_image}
 							/>
 						</div>
 						<div className="flex flex-col">
 							<div className="flex flex-row items-center">
-								<Card2.Username username={username} />
+								<Card2.Username username={profile.profile_name} />
 								<Card2.UserId
-									userId={userId}
+									userId={profile.username}
 									isAnony={false}
 								/>
-								<Card2.Time created_date={created_date} />
+								<Card2.Time created_date={answered_date} />
 							</div>
 							<div>
 								<Card2.Content content={answer_content} />

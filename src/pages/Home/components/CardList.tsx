@@ -8,31 +8,24 @@ import useClipBoard from '~/hooks/useClipBoard';
 
 type Props = {
 	username: string;
-	userId: string;
-	profile_image: string;
 };
 
-const CardList = ({ username, userId, profile_image }: Props) => {
+const CardList = ({ username }: Props) => {
 	// server
 	const { answeredQuestionsRes, onFetchNext, isFetchingNextPage } = useAnswered(username);
-
 	// client
 	const pageBottomRef = useIntersect(onFetchNext);
 
-	return answeredQuestionsRes?.length === 0 ? (
-		<EmptyQuestionUI pageBottomRef={pageBottomRef} />
-	) : (
+	if (answeredQuestionsRes?.length === 0) {
+		return <EmptyQuestionUI pageBottomRef={pageBottomRef} />;
+	}
+
+	return (
 		<ul className={'flex flex-col gap-16 bg-background-inner py-16 px-20'}>
-			{answeredQuestionsRes?.map((q: QuestionModel, idx: number) => (
+			{answeredQuestionsRes?.map((answer: QuestionModel, idx: number) => (
 				<AnsweredCard
 					key={idx}
-					isAnony={true}
-					userId={userId}
-					username={username}
-					content={q.content}
-					answer_content={q.answer_content}
-					created_date={q.created_date}
-					profile_image={profile_image}
+					answer={answer}
 				/>
 			))}
 			{isFetchingNextPage && <Spinner />}
