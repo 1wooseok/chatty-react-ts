@@ -52,3 +52,10 @@ jobs:
       - name: Upload to S3
         run: |
           aws s3 sync ./dist s3://chatty-s3-bucket/react-archive/
+
+      - name: deploy with AWS codeDeploy
+        run: aws deploy create-deployment
+          --application-name chatty-react-main
+          --deployment-config-name CodeDeployDefault.OneAtATime
+          --deployment-group-name chatty-react-main-group
+          --s3-location bucket=github-action-codedeploy-s3,bundleType=tgz,key=archive/drcloud.tar.gz

@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /home/ubuntu/chatty-react-ts
+permissions:
+  - object: /home/ubuntu/chatty-react-ts
+    owner: ubuntu
+    group: ubuntu
+    mode: 755
