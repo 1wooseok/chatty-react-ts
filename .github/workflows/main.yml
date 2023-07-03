@@ -24,7 +24,14 @@ jobs:
     steps:
       # 작업에서 액세스할 수 있도록 $GITHUB_WORKSPACE에서 저장소를 체크아웃합니다.
       - name: Checkout
-        uses: actions/checkout@main
+        uses:
+          actions/checkout@main
+
+          # Runs a single command using the runners shell
+      - name: Clean temp directory
+        run: |
+          rm -rf *
+          cp -r $GITHUB_WORKSPACE .
 
       - name: Cache node modules # node modules 캐싱
         uses: actions/cache@v1
@@ -53,8 +60,9 @@ jobs:
           aws-region: ap-northeast-2
 
       - name: Upload to S3
-        run: |
-          aws s3 sync ./chatty.tar.gz s3://chatty-s3-bucket/react-archive/
+        run: aws s3 cp --region ap-northeast-2 ./chatty.tar.gz s3://chatty-s3-bucket/react-archive/
+      #        run: |
+      #          aws s3 cp ./chatty.tar.gz s3://chatty-s3-bucket/react-archive/
 
       - name: deploy with AWS codeDeploy
         run: aws deploy create-deployment
