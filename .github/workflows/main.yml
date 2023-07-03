@@ -43,7 +43,7 @@ jobs:
         run: npm run build
 
       - name: archive chatty
-        run: tar cvfz ./dist/chatty.tar.gz *
+        run: tar cvfz ./chatty.tar.gz ./dist
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@main
@@ -54,7 +54,7 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 sync ./dist s3://chatty-s3-bucket/react-archive/
+          aws s3 sync ./chatty.tar.gz s3://chatty-s3-bucket/react-archive/
 
       - name: deploy with AWS codeDeploy
         run: aws deploy create-deployment
