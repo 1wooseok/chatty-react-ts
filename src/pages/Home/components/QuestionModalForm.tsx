@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import { AxiosError } from 'axios';
 import { useQueryClient } from '@tanstack/react-query';
 
+// todo: `@from 익명` 으로 바꾸기
 export interface ModalProps {
 	isOpen: boolean;
 	toggleModal: () => void;
