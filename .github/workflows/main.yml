@@ -43,7 +43,7 @@ jobs:
         run: npm run build
 
       - name: archive chatty
-        run: tar cvfz ./chatty.tar.gz *
+        run: tar cvfz .dist/chatty.tar.gz *
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@main
