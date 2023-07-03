@@ -55,7 +55,7 @@ jobs:
 
       - name: deploy with AWS codeDeploy
         run: aws deploy create-deployment
-          --application-name chatty-react-main
+          --application-name chatty-react
           --deployment-config-name CodeDeployDefault.OneAtATime
-          --deployment-group-name chatty-react-main-group
+          --deployment-group-name main
           --s3-location bucket=github-action-codedeploy-s3,bundleType=tgz,key=archive/drcloud.tar.gz
