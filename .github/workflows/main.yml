@@ -51,4 +51,4 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 sync ./build s3://chatty-s3-dev/chatty-react-main
+          aws s3 sync ./build s3://chatty-s3-bucket/react-archive/
