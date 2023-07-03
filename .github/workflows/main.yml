@@ -42,6 +42,9 @@ jobs:
       - name: Build # project build
         run: npm run build
 
+      - name: archive chatty
+        run: tar cvfz ./chatty.tar.gz *
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@main
         with:
@@ -58,4 +61,4 @@ jobs:
           --application-name chatty-react
           --deployment-config-name CodeDeployDefault.OneAtATime
           --deployment-group-name main
-          --s3-location bucket=chatty-s3-bucket,bundleType=tgz,key=react-archive/drcloud.tar.gz
+          --s3-location bucket=chatty-s3-bucket,bundleType=tgz,key=react-archive/chatty.tar.gz
